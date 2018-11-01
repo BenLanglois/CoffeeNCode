@@ -1,0 +1,21 @@
+<% provide(:title, "Home") %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= yield(:title) %> | Bloggster</title>
+    </head>
+    <body>
+        <h1>Home Page</h1>
+        <p>
+            This is my home page. Welcome!
+        </p>
+
+        <%= image_tag("CoffeeNCode.png", :alt => "Coffee 'N Code Logo") %>
+
+        <ul>
+            <% for i in 1..10 %>
+                <li><%= i %></li>
+            <% end %>
+        </ul>
+    </body>
+</html>
