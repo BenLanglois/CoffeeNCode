@@ -2,21 +2,32 @@
 <%= render 'layouts/header' %>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title><%= yield(:title) %> | Bloggster</title>
-    </head>
-    <body>
-        <h1>Home Page</h1>
-        <p>
-            This is my home page. Welcome!
-        </p>
+<head>
+    <title><%= yield(:title) %> | Bloggster</title>
+</head>
+<body>
+    <h1>Home Page</h1>
+    <p>
+        This is the home page. Welcome!
+    </p>
 
-        <%= image_tag("CoffeeNCode.png", :alt => "Coffee 'N Code Logo") %>
+    <%= image_tag("CoffeeNCode.png", :alt => "Coffee 'N Code Logo") %>
 
-        <ul>
-            <% for i in 1..10 %>
-                <li><%= i*i %></li>
-            <% end %>
-        </ul>
-    </body>
+    <% if logged_in? %>
+        <div class="row">
+            <aside class="col-md-4">
+                <section class="user_info">
+                    <h1><%= current_user.name %></h1>
+                    <p><%= current_user.email %></p>
+                    <span><%= link_to "view my profile", current_user %></span>
+                </section>
+                <section class="micropost_form">
+                    <%= render 'microposts/micropost_form' %>
+                </section>
+            </aside>
+        </div>
+    <% else %>
+        <p>Log in to view microposts!</p>
+    <% end %>
+</body>
 </html>
