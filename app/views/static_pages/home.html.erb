@@ -7,27 +7,29 @@
 </head>
 <body>
     <h1>Home Page</h1>
-    <p>
-        This is the home page. Welcome!
-    </p>
+    <div class="center">
+        <h2>
+            Welcome to the blog!
+        </h2>
 
-    <%= image_tag("CoffeeNCode.png", :alt => "Coffee 'N Code Logo") %>
+        <%= image_tag("CoffeeNCode.png", :alt => "Coffee 'N Code Logo") %>
 
-    <% if logged_in? %>
-        <div class="row">
-            <aside class="col-md-4">
-                <section class="user_info">
-                    <h1><%= current_user.name %></h1>
-                    <p><%= current_user.email %></p>
-                    <span><%= link_to "view my profile", current_user %></span>
-                </section>
+        <% if logged_in? %>
+            <section class="user_info">
+                <h1><%= current_user.name %></h1>
+                <p><%= current_user.email %></p>
+                <span><%= link_to "view my profile", current_user %></span>
+            </section>
+            <div class="row">
+                <aside class="col-md-6 col-md-offset-3">
                 <section class="micropost_form">
                     <%= render 'microposts/micropost_form' %>
                 </section>
             </aside>
         </div>
-    <% else %>
-        <p>Log in to view microposts!</p>
-    <% end %>
+        <% else %>
+        <p><span><%= link_to "Log in", login_path %></span> to create microposts!</p>
+        <% end %>
+    </div>
 </body>
 </html>

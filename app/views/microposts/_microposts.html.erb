@@ -1,11 +1,13 @@
 <% for micropost in @microposts do %>
 
-<li id="micropost-<%= micropost.id %>">
-  <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
-  <span class="content"><%= micropost.content %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-  </span>
-</li>
+<div class="col-md-6 col-md-offset-3">
+    <li class="microposts" id="micropost-<%= micropost.id %>">
+      <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+      <span class="content"><%= micropost.content %></span>
+      <span class="timestamp">
+        Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+      </span>
+    </li>
+</div>
 
 <% end %>

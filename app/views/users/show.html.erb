@@ -1,3 +1,8 @@
 <%= render 'layouts/header' %>
+
+<div class="center">
+    <h1><%= @user.name %>'s blog</h1>
+    <h2><%= @user.email %></h2>
+</div>
+
 <%= render 'microposts/microposts' %>
-<%= @user.name %>, <%= @user.email %>
